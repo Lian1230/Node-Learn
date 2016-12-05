@@ -17,14 +17,14 @@ $.init.add((done) => {
 })
 
 //初始化MongoDB
-$.init.load(path.resolve(__dirname, 'init','mongodb.js'));
+// $.init.load(path.resolve(__dirname, 'init','mongodb.js'));
 //加载Models
-$.init.load(path.resolve(__dirname,'models'));
+// $.init.load(path.resolve(__dirname,'models'));
 
 //初始化Express
-// $.init.load(path.resolve(__dirname, 'init','express.js'));
+$.init.load(path.resolve(__dirname, 'init','express.js'));
 //加载路由
-// $.init.load(path.resolve(__dirname, 'routes'));
+$.init.load(path.resolve(__dirname, 'routes'));
 
 
 //初始化
@@ -36,10 +36,10 @@ $.init((err) => {
     console.log('inited [env=%s]', $.env);
   }
 
-  const item = new $.model.User({
-    name: `User${$.utils.date('Ymd')}`,
-    password: '12345',
-    nickname: '测试用户',
-  });
-  item.save(console.log);
+  // const item = new $.model.User({
+  //   name: `User${$.utils.date('Ymd')}`,
+  //   password: '12345',
+  //   nickname: '测试用户',
+  // });
+  // item.save(console.log);
 });

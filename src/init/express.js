@@ -16,7 +16,7 @@ module.exports = function(done){
   $.router = router;
 
   app.use(router);
-  app.use('/static'),serveStatic(path.resolve(__dirname, '../../static'));
+  app.use('/static',serveStatic(path.resolve(__dirname, '../../static')));
 
   app.listen($.config.get('web.port'), (err) => {
     done(err);
