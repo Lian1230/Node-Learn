@@ -10,16 +10,16 @@ $.init.add((done) => {
   $.config.load(path.resolve(__dirname, 'config.js'))
   const env = process.env.NODE_ENV || null;
   if (env) {
-    $.config.load(path.resolve(__dirname,'../config',env + '.js'));
+    $.config.load(path.resolve(__dirname,'../config',env + '.js')); //加载 config目录下的dev.js文件
   }
   $.env = env;
   done();
 })
 
 //初始化MongoDB
-// $.init.load(path.resolve(__dirname, 'init','mongodb.js'));
+$.init.load(path.resolve(__dirname, 'init','mongodb.js'));
 //加载Models
-// $.init.load(path.resolve(__dirname,'models'));
+$.init.load(path.resolve(__dirname,'models'));
 
 //初始化Express
 // $.init.load(path.resolve(__dirname, 'init','express.js'));
@@ -36,10 +36,10 @@ $.init((err) => {
     console.log('inited [env=%s]', $.env);
   }
 
-  // const item = new $.model.user({
-  //   name: `user${$.utils.date('Ymd')}`,
-  //   password: '12345',
-  //   nickname: '测试用户',
-  // });
-  // item.save(console.log);
+  const item = new $.model.User({
+    name: `User${$.utils.date('Ymd')}`,
+    password: '12345',
+    nickname: '测试用户',
+  });
+  item.save(console.log);
 });

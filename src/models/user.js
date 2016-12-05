@@ -12,8 +12,8 @@ module.exports = function(done){
     password: {type:String},
     nickname: {type: String},
   });
-  $.mongodb.model('user', user);
-  $.model.user = $.mongodb.model('user');
+  $.mongodb.model('User', User);
+  $.model.User = $.mongodb.model('User');
 
   done();
 }
