@@ -1,7 +1,7 @@
 'use strict'
 
 import path from 'path';
-import PrejectCore from 'project-core';
+import ProjectCore from 'project-core';
 
 const $ = global.$ = new ProjectCore();
 
@@ -9,7 +9,7 @@ const $ = global.$ = new ProjectCore();
 $.init.add((done) => {
   $.config.load(path.resolve(__dirname, 'config.js'))
   const env = process.env.NODE_ENV || null;
-  if (evn) {
+  if (env) {
     $.config.load(path.resolve(__dirname,'../config',env + '.js'));
   }
   $.env = env;
@@ -22,18 +22,18 @@ $.init.add((done) => {
 // $.init.load(path.resolve(__dirname,'models'));
 
 //初始化Express
-$.init.load(path.resolve(__dirname, 'init','express.js'));
+// $.init.load(path.resolve(__dirname, 'init','express.js'));
 //加载路由
-$.init.load(path.resolve(__dirname, 'routes'));
+// $.init.load(path.resolve(__dirname, 'routes'));
 
 
 //初始化
-$init((err) => {
+$.init((err) => {
   if (err){
     console.error(err);
     process.exit(-1);
   } else {
-    console.log('inited')
+    console.log('inited [env=%s]', $.env);
   }
 
   // const item = new $.model.user({
