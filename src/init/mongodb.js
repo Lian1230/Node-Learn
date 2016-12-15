@@ -1,6 +1,7 @@
 'use strict'
 
 import mongoose from 'mongoose';
+mongoose.Promise = global.Promise;
 
 module.exports = function(done){
 

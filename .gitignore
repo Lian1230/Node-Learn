@@ -38,3 +38,5 @@ jspm_packages
 
 target
 config
+temptest.js
+.gitignore

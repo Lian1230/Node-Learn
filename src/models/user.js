@@ -1,6 +1,7 @@
 'use strict';
 
 import mongoose from 'mongoose';
+mongoose.Promise = global.Promise;
 
 module.exports = function(done){
 
@@ -9,8 +10,10 @@ module.exports = function(done){
 
   const User = new Schema({
     name:{type: String, unique:true},
-    password: {type:String},
+    email: {type: String, unique:true},
+    password: {type: String},
     nickname: {type: String},
+    about: {type: String},
   });
   $.mongodb.model('User', User);
   $.model.User = $.mongodb.model('User');
