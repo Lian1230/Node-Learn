@@ -13,16 +13,6 @@ $.createDebug = function(name){
 const debug = $.createDebug('server');
 
 //加载配置文件
-// $.init.add((done) => {
-//   $.config.load(path.resolve(__dirname, 'config.js'))
-//   const env = process.env.NODE_ENV || null;
-//   if (env) {
-//     debug('load env: %s', env);
-//     $.config.load(path.resolve(__dirname,'../config',env + '.js')); //加载 config目录下的dev.js文件
-//   }
-//   $.env = env;
-//   done();
-// })
 
 $.init.add((done) => {
  try {
@@ -48,10 +38,11 @@ $.init.load(path.resolve(__dirname,'models'));
 //加载methods
 $.init.load(path.resolve(__dirname, 'methods'));
 
-//初始化Express
-// $.init.load(path.resolve(__dirname, 'init','express.js'));
-//加载路由
-// $.init.load(path.resolve(__dirname, 'routes'));
+// 初始化Express
+$.init.load(path.resolve(__dirname, 'init','express.js'));
+
+// 加载路由
+$.init.load(path.resolve(__dirname, 'routes'));
 
 
 //初始化
