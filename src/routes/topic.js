@@ -108,16 +108,16 @@ module.exports = function (done) {
     req.body.author = req.session.user._id;
 
     // 发布频率限制
-    {
-      const key = `addcomment:${req.body.author}:${$.utils.date('YmdH')}`;
-      const limit = 20;
-      const ok = await $.limiter.incr(key, limit);
-      if (!ok) throw new Error('out of limit');
-    }
+    // {
+    //   const key = `addcomment:${req.body.author}:${$.utils.date('YmdH')}`;
+    //   const limit = 20;
+    //   const ok = await $.limiter.incr(key, limit);
+    //   if (!ok) throw new Error('out of limit');
+    // }
 
     const comment = await $.method('topic.comment.add').call(req.body);
 
-    await $.method('user.incrScore').call({_id: req.body.author, score: 1});
+    // await $.method('user.incrScore').call({_id: req.body.author, score: 1});
 
     res.apiSuccess({comment});
 
@@ -125,8 +125,6 @@ module.exports = function (done) {
 
 
   $.router.post('/api/topic/item/:topic_id/comment/delete', $.checkLogin, async function (req, res, next) {
-
-    req.body._id = req.params.topic_id;
 
     const query = {
       _id: req.params.topic_id,

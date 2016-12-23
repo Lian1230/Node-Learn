@@ -54,6 +54,7 @@ module.exports = function (done) {
   $.router.get('/api/logout', async function (req, res, next) {
 
     if (req.session.logout_token && req.query.token !== req.session.logout_token) {
+      console.log(req.session.logout_token)
       return next(new Error('invalid token'));
     }
 
@@ -65,14 +66,14 @@ module.exports = function (done) {
   });
 
 
-  $.router.post('/api/logout', async function (req, res, next) {
+  // $.router.post('/api/logout', async function (req, res, next) {
 
-    delete req.session.user;
-    delete req.session.logout_token;
+  //   delete req.session.user;
+  //   delete req.session.logout_token;
 
-    res.json({success: true});
+  //   res.apiSuccess({success: true});
 
-  });
+  // });
 
 
   $.router.post('/api/signup', async function (req, res, next) {
