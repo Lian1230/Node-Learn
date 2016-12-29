@@ -8,4 +8,10 @@ module.exports = function (set, get, has){
   // session secret
   set('web.session.secret', 'test');
 
+
+  set('web.session.redis', {
+    host: '127.0.0.1',
+    port: 32768,
+  })
+
 };

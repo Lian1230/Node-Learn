@@ -8,7 +8,9 @@
     "watch": "npm run clean && babel src -d target --watch",
     "compile": "npm run clean && babel src -d target",
     "clean": "rm -Rf target",
-    "dev": "export NODE_ENV=dev && export DEBUG='my:*' && nodemon target/server.js"
+    "dev": "export NODE_ENV=dev && export DEBUG='my:*' && nodemon target/server.js",
+    "web": "webpack --config mywebpack.config.js",
+    "fe:compile": "cd frontend && ../node_modules/.bin/webpack --progress"
   },
   "repository": {
     "type": "git",
@@ -22,12 +24,17 @@
   "homepage": "https://github.com/Phuhwei/Node-Learn#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
     "babel-preset-es2015-node4": "^2.1.0",
-    "babel-preset-stage-0": "^6.16.0"
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "webpack": "^1.14.0"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "connect-multiparty": "^2.0.0",
+    "connect-redis": "^3.1.0",
     "debug": "^2.3.3",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
