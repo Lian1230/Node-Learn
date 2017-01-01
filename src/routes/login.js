@@ -33,6 +33,7 @@ module.exports = function (done) {
       return next(new Error('incorrect password'));
     }
 
+    console.log(req.seesion);
     req.session.user = user;
     req.session.logout_token = $.utils.randomString(20);
 

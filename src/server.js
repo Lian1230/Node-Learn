@@ -56,7 +56,6 @@ $.init((err) => {
     process.exit(-1);
   } else {
     debug('inited env: %s.js inited port: %s', $.env, $.config.get('web.port'));
-    // debug('inited port: %s', $.config.get('web.port'));
   }
   const userfile = require(path.resolve(__dirname, '../config', $.env + '.js'));
   // require('./test')
