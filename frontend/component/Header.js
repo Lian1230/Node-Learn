@@ -1,8 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router';
-// import { loginUser, logout, notificationCount } from '../lib/client';
+import { loginUser, logout, notificationCount } from '../lib/client';
 
 export default class Header extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    loginUser()
+      .then(user => this.setState({ user }))
+      .catch(err => console.error(err));
+    // notificationCount(false)
+    //   .then(notificationCount => this.setState({ notificationCount }))
+    //   .catch(err => console.error(err));
+  }
+
+  handleLogout() {
+    logout()
+      .then(user => location.reload())
+      .catch(err => console.error(err));
+  }
+
   render() {
     return (
       <nav className="navbar navbar-default" role="navigation">
@@ -23,30 +44,20 @@ export default class Header extends React.Component {
                 <Link to="/">首页</Link>
               </li>
               <li><a href="#">帮助</a></li>
-
             </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown">Dropdown <span className="caret"></span></a>
-                <ul className="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </li>
+              {this.state.user ? (
+                <li><a href="#" onClick={this.handleLogout} >注销 [{this.state.user.nickname}]</a></li>
+              ) : (
+                  <li><a href="/login">登陆</a></li>
+                )}
             </ul>
           </div>
         </div>
       </nav>
     )
   }
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  // }
+
 
   // componentDidMount() {
   //   loginUser()

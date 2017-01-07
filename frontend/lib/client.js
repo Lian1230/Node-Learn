@@ -52,7 +52,7 @@ export function loginUser() {
 }
 
 export function logout() {
-  return request('post', 'logout');
+  return request('get', 'logout');
 }
 
 export function signup(name, email, password, nickname) {

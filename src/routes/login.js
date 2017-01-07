@@ -54,10 +54,10 @@ module.exports = function (done) {
 
   $.router.get('/api/logout', async function (req, res, next) {
 
-    if (req.session.logout_token && req.query.token !== req.session.logout_token) {
-      console.log(req.session.logout_token)
-      return next(new Error('invalid token'));
-    }
+    // if (req.session.logout_token && req.query.token !== req.session.logout_token) {
+    //   console.log(req.session.logout_token)
+    //   return next(new Error('invalid token'));
+    // }
 
     delete req.session.user;
     delete req.session.logout_token;
