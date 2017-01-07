@@ -30,6 +30,7 @@ export default class TopicDetail extends React.Component {
     return (
       <div>
         <h2>{topic.title}</h2>
+        <p>标签：{topic.tags.join(', ')}</p>
         <section>{topic.content}</section>
         <ul className="list-group">
           {topic.comments.map((item, i) => {

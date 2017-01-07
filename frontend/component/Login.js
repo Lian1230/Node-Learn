@@ -18,7 +18,6 @@ export default class Login extends React.Component {
   // }
 
   handleLogin(e) {
-    console.log(e);
     const $btn = jQuery(e.target);
     $btn.button('loading');
     login(this.state.name, this.state.password)

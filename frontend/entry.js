@@ -2,9 +2,10 @@ import 'bootstrap-webpack';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
+import App from './app';
 import TopicDetail from './component/TopicDetail';
 import Login from './component/Login';
-import App from './app';
+import NewTopic from './component/NewTopic';
 
 // import { getTopicList } from './lib/client';
 
@@ -22,6 +23,7 @@ ReactDom.render((
     <Route path="/" component={App}>
       <Route path="/topic/:id" component={TopicDetail} />
       <Route path="login" component={Login} />
+      <Route path="new" component={NewTopic} />
     </Route>
   </Router>
 ), e);
