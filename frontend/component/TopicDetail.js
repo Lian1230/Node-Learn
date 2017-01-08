@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router';
-// import 'highlight.js/styles/github-gist.css';
+import 'highlight.js/styles/github-gist.css';
 // import { getTopicDetail, addComment, deleteComment, deleteTopic } from '../lib/client';
 import { renderMarkdown, redirectURL } from '../lib/utils';
 // import CommentEditor from './CommentEditor';
