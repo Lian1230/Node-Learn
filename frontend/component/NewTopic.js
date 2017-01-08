@@ -1,7 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
 import { addTopic } from '../lib/client';
-import {redirectURL} from '../lib/utils';
+import { redirectURL } from '../lib/utils';
 // import TopicEditor from './TopicEditor';
 
 export default class NewTopic extends React.Component {
@@ -11,7 +11,7 @@ export default class NewTopic extends React.Component {
     this.state = {};
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     const $btn = jQuery(e.target);
     $btn.button('loading');
     addTopic(this.state.title, this.state.tags, this.state.content)
@@ -27,6 +27,10 @@ export default class NewTopic extends React.Component {
   // componentDidMount(){
 
   // }
+  handleEdit(){
+    console.log(this.state.title);
+    // redirectURL(`/topic/${topic._id}`)
+  }
 
   handlechange(name, e) {
     this.state[name] = e.target.value;

@@ -6,6 +6,8 @@ import App from './app';
 import TopicDetail from './component/TopicDetail';
 import Login from './component/Login';
 import NewTopic from './component/NewTopic';
+import EditTopic from './component/EditTopic';
+
 
 // import { getTopicList } from './lib/client';
 
@@ -24,6 +26,7 @@ ReactDom.render((
       <Route path="/topic/:id" component={TopicDetail} />
       <Route path="login" component={Login} />
       <Route path="new" component={NewTopic} />
+      <Route path="edit/:id" component={EditTopic} />
     </Route>
   </Router>
 ), e);

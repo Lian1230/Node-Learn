@@ -23,6 +23,10 @@ export default class TopicDetail extends React.Component {
       .catch(err => console.error(err));
   }
 
+  handleEdit() {
+    redirectURL(`/edit/${this.state.topic._id}`)
+  }
+
   render() {
     const topic = this.state.topic;
     if (!topic) {
@@ -33,12 +37,13 @@ export default class TopicDetail extends React.Component {
     return (
       <div>
         <h2>{topic.title}</h2>
+        <button type="button" className="btn btn-primary" onClick={this.handleEdit.bind(this)}>编辑</button>
         <p>标签：{topic.tags.join(', ')}</p>
         <section dangerouslySetInnerHTML={{ __html: topic.html }}></section>
         <ul className="list-group">
           {topic.comments.map((item, i) => {
             return (
-              <li className="list-group-item">
+              <li className="list-group-item" key={i}>
                 {item.author._id}于{item.createdAt}说：<br />{item.content}
               </li>
             )
