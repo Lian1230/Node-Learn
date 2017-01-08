@@ -2,7 +2,7 @@ import React from 'react';
 // import { Link } from 'react-router';
 // import 'highlight.js/styles/github-gist.css';
 // import { getTopicDetail, addComment, deleteComment, deleteTopic } from '../lib/client';
-// import { renderMarkdown, redirectURL } from '../lib/utils';
+import { renderMarkdown, redirectURL } from '../lib/utils';
 // import CommentEditor from './CommentEditor';
 import { getTopicDetail } from '../lib/client';
 
@@ -16,7 +16,10 @@ export default class TopicDetail extends React.Component {
 
   componentDidMount() {
     getTopicDetail(this.props.params.id)
-      .then(topic => this.setState({ topic }))
+      .then(topic => {
+        topic.html = renderMarkdown(topic.content);
+        this.setState({ topic })
+      })
       .catch(err => console.error(err));
   }
 
@@ -31,7 +34,7 @@ export default class TopicDetail extends React.Component {
       <div>
         <h2>{topic.title}</h2>
         <p>标签：{topic.tags.join(', ')}</p>
-        <section>{topic.content}</section>
+        <section dangerouslySetInnerHTML={{ __html: topic.html }}></section>
         <ul className="list-group">
           {topic.comments.map((item, i) => {
             return (
