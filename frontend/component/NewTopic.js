@@ -45,7 +45,7 @@ export default class NewTopic extends React.Component {
             <div className="form-group">
               <label htmlFor="ipt-tags">标签</label>
               <input type="text" className="form-control" id="password" onChange={this.handlechange.bind(this, 'tags')} placeholder="" />
-              <p class="help-block">多个标签使用,分割</p>
+              <p className="help-block">多个标签使用,分割</p>
             </div>
             <div className="form-group">
               <label htmlFor="ipt-content">内容</label>

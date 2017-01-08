@@ -63,6 +63,7 @@
     "serve-static": "^1.11.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "validator": "^6.2.0"
+    "validator": "^6.2.0",
+    "xss": "^0.3.3"
   }
 }
