@@ -5,6 +5,7 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import App from './app';
 import TopicDetail from './component/TopicDetail';
 import Login from './component/Login';
+import Signup from './component/Signup';
 import NewTopic from './component/NewTopic';
 import EditTopic from './component/EditTopic';
 import EditTopic2 from './component/EditTopic2';
@@ -27,6 +28,7 @@ ReactDom.render((
       <Route path="/topic/:id" component={TopicDetail} />
       <Route path="/topic/:id/edit" component={EditTopic2} />
       <Route path="login" component={Login} />
+      <Route path="signup" component={Signup} />
       <Route path="new" component={NewTopic} />
       <Route path="edit/:id" component={EditTopic} />
     </Route>
