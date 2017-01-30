@@ -1,7 +1,12 @@
 import React from 'react';
 import Codemirror from 'react-codemirror';
-import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/gfm/gfm';
+
+import 'codemirror/lib/codemirror.css';
+// import 'codemirror/mode/xml/xml';
+// import 'codemirror/mode/markdown/markdown';
+// import 'codemirror/lib/codemirror.css';
+// import 'codemirror/mode/gfm/gfm';
 import '../lib/style.css';
 
 export default class MarkdownEditor extends React.Component {
@@ -12,7 +17,15 @@ export default class MarkdownEditor extends React.Component {
         lineNumbers: false,
         theme: 'default',
         viewportMargin: Infinity,
-      }} onChange={(value) => this.props.onChange({target: {value}})} />
+      }} onChange={(value) => this.props.onChange({ target: { value } })} />
     )
+    // return (
+    //   <Codemirror  options={{
+    //     mode: 'gfm',
+    //     lineNumbers: false,
+    //     theme: 'default',
+    //     viewportMargin: Infinity,
+    //   }} />
+    // )
   }
 }
