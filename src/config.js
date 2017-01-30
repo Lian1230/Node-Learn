@@ -11,7 +11,7 @@ module.exports = function (set, get, has){
 
   set('web.session.redis', {
     host: '127.0.0.1',
-    port: 32768,
+    port: 32770,
   })
 
 };

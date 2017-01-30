@@ -1,8 +1,8 @@
 import React from 'react';
 import jQuery from 'jquery';
-import {addTopic} from '../lib/client';
-import {redirectURL} from '../lib/utils';
-import MarkdownEditor from './MarkdownEditor';
+import { addTopic } from '../lib/client';
+import { redirectURL } from '../lib/utils';
+// import MarkdownEditor from './MarkdownEditor';
 
 export default class TopicEditor extends React.Component {
 
@@ -12,7 +12,7 @@ export default class TopicEditor extends React.Component {
   }
 
   handleChange(name, e) {
-    this.setState({[name]: e.target.value});
+    this.setState({ [name]: e.target.value });
   }
 
   handleSubmit(e) {
@@ -40,7 +40,7 @@ export default class TopicEditor extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="ipt-content">内容</label>
-              <MarkdownEditor value={this.state.content} onChange={this.handleChange.bind(this, 'content')} />
+              <textarea className="form-control" id="ipt-content" rows="10" onChange={this.handleChange.bind(this, 'content')} />
             </div>
             <button type="button" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>保存</button>
           </form>

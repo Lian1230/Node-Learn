@@ -5,6 +5,7 @@ import 'highlight.js/styles/github-gist.css';
 import { renderMarkdown, redirectURL } from '../lib/utils';
 // import CommentEditor from './CommentEditor';
 import { getTopicDetail } from '../lib/client';
+import { getUser } from '../lib/client';
 
 
 export default class TopicDetail extends React.Component {
@@ -19,12 +20,19 @@ export default class TopicDetail extends React.Component {
       .then(topic => {
         topic.html = renderMarkdown(topic.content);
         this.setState({ topic })
+        console.log(this.state);
       })
       .catch(err => console.error(err));
   }
 
   handleEdit() {
     redirectURL(`/edit/${this.state.topic._id}`)
+  }
+  getUserNickname() {
+    getUser('585a7edd276f275ae4c7612f')
+      .then(user => {
+        console.log(user.nickname);
+        v({username: user.nickname})});
   }
 
   render() {
@@ -38,13 +46,14 @@ export default class TopicDetail extends React.Component {
       <div>
         <h2>{topic.title}</h2>
         <button type="button" className="btn btn-primary" onClick={this.handleEdit.bind(this)}>编辑</button>
+        <button type="button" className="btn btn-primary" onClick={this.getUserNickname.bind(this)}>USER</button>
         <p>标签：{topic.tags.join(', ')}</p>
         <section dangerouslySetInnerHTML={{ __html: topic.html }}></section>
         <ul className="list-group">
           {topic.comments.map((item, i) => {
             return (
               <li className="list-group-item" key={i}>
-                {item.author._id}于{item.createdAt}说：<br />{item.content}
+                {item.author.nickname} 于{item.createdAt}说：<br />{item.content}
               </li>
             )
           })}

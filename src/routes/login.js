@@ -33,7 +33,7 @@ module.exports = function (done) {
       return next(new Error('incorrect password'));
     }
 
-    console.log(req.seesion);
+    console.log(req.session);
     req.session.user = user;
     req.session.logout_token = $.utils.randomString(20);
 
@@ -47,7 +47,7 @@ module.exports = function (done) {
     //
     // await $.limiter.reset(key);
 
-    res.json({success: true, token: req.session.logout_token});
+    res.json({success: true, tokens: req.session.logout_token, user: req.session});
 
   });
 

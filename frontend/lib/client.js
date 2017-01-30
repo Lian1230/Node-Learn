@@ -34,6 +34,9 @@ export function request(method, path, data = {}) {
     });
   });
 }
+export function getUser(id) {
+  return request('get', `user/${id}`);
+}
 
 export function getTopicList(options) {
   return request('get', 'topic/list', options);
@@ -60,7 +63,7 @@ export function signup(name, email, password, nickname) {
 }
 
 export function addTopic(title, tags, content) {
-  return request('post', 'topic/add', {title, tags, content}).then(ret => ret.topic);
+  return request('post', 'topic/add', {title, tags, content}).then(ret => ret.topics);
 }
 
 export function updateTopic(id, title, tags, content) {
