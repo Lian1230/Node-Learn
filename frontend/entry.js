@@ -7,6 +7,7 @@ import TopicDetail from './component/TopicDetail';
 import Login from './component/Login';
 import NewTopic from './component/NewTopic';
 import EditTopic from './component/EditTopic';
+import EditTopic2 from './component/EditTopic2';
 
 
 // import { getTopicList } from './lib/client';
@@ -24,6 +25,7 @@ ReactDom.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <Route path="/topic/:id" component={TopicDetail} />
+      <Route path="/topic/:id/edit" component={EditTopic2} />
       <Route path="login" component={Login} />
       <Route path="new" component={NewTopic} />
       <Route path="edit/:id" component={EditTopic} />

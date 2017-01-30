@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import 'highlight.js/styles/github-gist.css';
 // import { getTopicDetail, addComment, deleteComment, deleteTopic } from '../lib/client';
 import { renderMarkdown, redirectURL } from '../lib/utils';
@@ -28,11 +28,13 @@ export default class TopicDetail extends React.Component {
   handleEdit() {
     redirectURL(`/edit/${this.state.topic._id}`)
   }
+
   getUserNickname() {
     getUser('585a7edd276f275ae4c7612f')
       .then(user => {
         console.log(user.nickname);
-        v({username: user.nickname})});
+        v({ username: user.nickname })
+      });
   }
 
   render() {
@@ -46,6 +48,8 @@ export default class TopicDetail extends React.Component {
       <div>
         <h2>{topic.title}</h2>
         <button type="button" className="btn btn-primary" onClick={this.handleEdit.bind(this)}>编辑</button>
+        <Link to={`/topic/${topic._id}/edit`} className="btn btn-primary">编辑2</Link>
+        <hr />
         <button type="button" className="btn btn-primary" onClick={this.getUserNickname.bind(this)}>USER</button>
         <p>标签：{topic.tags.join(', ')}</p>
         <section dangerouslySetInnerHTML={{ __html: topic.html }}></section>
